@@ -1,2 +1,3 @@
-./nginx/data/*
-./nginx/letsencrypt/*
+nginx/data/**/*
+nginx/letsencrypt/**/*
+pihole/etc-pihole/**/*

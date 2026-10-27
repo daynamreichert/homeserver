@@ -1,0 +1,9 @@
+services:
+  dhcp:
+    image: 'homeall/dhcphelper:latest'
+    restart: always
+    network_mode: "host"
+    environment:
+      IP: '172.31.0.100'
+    cap_add:
+      - NET_ADMIN
