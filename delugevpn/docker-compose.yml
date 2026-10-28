@@ -1,0 +1,29 @@
+---
+services:
+  delugevpn:
+    image: binhex/arch-delugevpn:latest
+    container_name: delugevpn
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TZ:-America/New_York}
+      - LAN_NETWORK=${LAN_NETWORK:-192.168.1.0/24}
+      - NAME_SERVERS=${NAME_SERVERS:-1.1.1.1,8.8.8.8}
+      - VPN_ENABLED=${VPN_ENABLED:-no}
+      - VPN_USER=${VPN_USER:-}
+      - VPN_PASS=${VPN_PASS:-}
+      - VPN_PROV=${VPN_PROV:-custom}
+      - VPN_CLIENT=${VPN_CLIENT:-openvpn}
+      - STRICT_PORT_FORWARD=${STRICT_PORT_FORWARD:-no}
+      - ENABLE_PRIVOXY=${ENABLE_PRIVOXY:-no}
+    ports:
+      - "${DELUGE_WEB_PORT:-8112}:8112"
+      - "${DELUGE_DAEMON_PORT:-58846}:58846"
+      - "${DELUGE_TORRENT_PORT:-58946}:58946"
+      - "${DELUGE_TORRENT_PORT:-58946}:58946/udp"
+    volumes:
+      - ./config:/config
+      - ${DOWNLOADS_PATH:-/home/dayna/Documents/homeserver/downloads}:/data

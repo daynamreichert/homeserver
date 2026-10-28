@@ -1,3 +1,20 @@
-nginx/data/**/*
-nginx/letsencrypt/**/*
-pihole/etc-pihole/**/*
+# Downloads & Media
+downloads/
+**/downloads/
+plex/media/
+plex/transcode/
+
+# Service runtime data & configs
+**/config/
+pihole/etc-pihole/
+pihole/etc-dnsmasq.d/
+nginx/data/
+nginx/letsencrypt/
+imich/postgres/
+plex/database/
+
+# Logs & temporary files
+*.log
+*.swp
+*.bak
+.DS_Store
