@@ -12,6 +12,13 @@ nginx/data/
 nginx/letsencrypt/
 imich/postgres/
 plex/database/
+ollama/ollama_data
+ollama/package-lock.json
+ollama/package.json
+n8n/n8n_data/
+n8n/sandbox-tls
+n8n/searxng-settings.yml
+
 
 # Logs & temporary files
 *.log
